@@ -1,4 +1,6 @@
+'use client';
 import 'animate.css';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
   // Number of items
@@ -6,9 +8,13 @@ export default function Home() {
   // Calculate the rotation angle for each item
   const angleStep = 360 / itemCount;
 
+  const router = useRouter();
   return (
     <>
-    <div className="relative p-8 rounded-t-3xl max-w-4xl mx-auto shadow-lg h-screen">
+    <div className="relative p-8 rounded-t-3xl max-w-4xl mx-auto h-screen">
+      <button onClick={()=>{window.location.href = '/'}}>
+        Go back
+      </button>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         {[...Array(itemCount)].map((_, index) => {
           // Calculate the angle for this item
