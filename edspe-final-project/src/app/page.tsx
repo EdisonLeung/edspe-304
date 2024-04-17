@@ -44,7 +44,7 @@ export default function Home() {
     },
     {
       title: 'Week 9',
-      imageUrl: "Gojo.jpeg",
+      imageUrl: "week1.jpeg",
     }
   ]
   const router = useRouter();
@@ -65,7 +65,7 @@ export default function Home() {
         data-layout='overlay'
       ></ins> */}
       <div className="relative p-8 rounded-t-3xl mx-auto h-screen w-full">
-        <div className="absolute inset-0 bg-[url('/week1.jpeg')] filter blur-sm"></div>
+        <div className="absolute inset-0 bg-[url('/Gojo.jpeg')] filter blur-sm"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <button
             className="transition ease-in-out delay-15 hover:-translate-y-1 hover:scale-125 hover:bg-indigo-500 duration-300 text-black flex items-center justify-center rounded-full animate__animated animate__fadeIn bg-[url('/week1.jpeg')]"
