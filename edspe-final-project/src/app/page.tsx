@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Script from 'next/script';
 import 'animate.css';
 import { useRouter } from "next/navigation";
@@ -48,6 +48,17 @@ export default function Home() {
     }
   ]
   const router = useRouter();
+  const ref = useRef<HTMLDivElement>(null);
+
+  const scrollToElement = () => {
+    if (ref.current) {
+      ref.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   // Number of items
   const itemCount = data.length;
   // Calculate the rotation angle for each item
@@ -77,17 +88,16 @@ export default function Home() {
               marginLeft: '-13rem', // Half of the width to center it
               marginTop: '-8rem', // Half of the height to center it
             }}
+            onClick={scrollToElement}
           >
-            <div className="w-full h-full flex items-center justify-center flex-col"
+            <div className="w-full h-full flex items-center justify-center flex-col bg-white/40 font-mono text-3xl"
               style={{
-                width: '22rem', // Same width as other ovals
-                height: '15rem', // Same height as other ovals
                 borderRadius: '50%',
-                position: 'absolute',
               }}
             >
               <p>What I Learned</p>
               <p>Disablity & Ableism</p>
+              <p>{"(Click Me for More!)"}</p>
             </div>
           </button>
           {[...Array(itemCount)].map((_, index) => {
@@ -96,8 +106,8 @@ export default function Home() {
             // Convert the angle to radians for the CSS transform
             const radians = (angle * Math.PI) / 180;
             // Calculate the x and y position based on the oval shape
-            const x = Math.cos(radians) * 700; // Adjust if necessary
-            const y = Math.sin(radians) * 350; // Adjust if necessary
+            const x = Math.cos(radians) * window.innerWidth / 2.5; // Adjust if necessary
+            const y = Math.sin(radians) * window.innerHeight / 3; // Adjust if necessary
             // Calculate the animation delay, starting with index 9 and decreasing for each subsequent index
             const animationDelay = `${index * 0.1}`;
 
@@ -110,7 +120,7 @@ export default function Home() {
                 }}
               >
                 <button
-                  className="text-black flex transition ease-in-out delay-15 hover:-translate-y-1 hover:scale-110 duration-300"
+                  className="text-black flex transition ease-in-out delay-15 hover:-translate-y-1 hover:scale-110 duration-300 group"
                   onClick={()=>{router.push(`/reflection/week${index+1}`)}}
                 >
                   <div
@@ -125,7 +135,19 @@ export default function Home() {
                       marginTop: '-6rem', // Half of the updated height
                     }}
                   >
-                    {data[index].title}
+                    <div className="absolute w-full h-full flex items-center justify-center flex-col bg-white/30 group-hover:opacity-0"
+                      style={{
+                        borderRadius: '50%'
+                      }}>
+                      {data[index].title}
+                    </div>
+                    <div className="w-full h-full flex items-center justify-center flex-col bg-black/30 opacity-0 group-hover:opacity-100"
+                      style={{
+                        borderRadius: '50%'
+                      }}
+                    >
+                      sdfsd
+                    </div>
                   </div>
                 </button>
               </div>
@@ -133,7 +155,7 @@ export default function Home() {
           })}
         </div>
       </div>
-      <div className="absolute bg-red-300 w-full flex justify-center h-screen">
+      <div ref={ref} className="absolute bg-red-300 w-full flex justify-center h-screen">
         <div className="w-1/2 flex items-center">
           <ins
             style={{ display: 'block', width: '50%', height: '100%'}}
