@@ -44,7 +44,7 @@ export default function Home() {
     },
     {
       title: 'Week 9',
-      imageUrl: "week1.jpeg",
+      imageUrl: "Gojo.jpeg",
     }
   ]
   const router = useRouter();
@@ -65,20 +65,30 @@ export default function Home() {
         data-layout='overlay'
       ></ins> */}
       <div className="relative p-8 rounded-t-3xl mx-auto h-screen w-full">
-        <div className="absolute inset-0 bg-[url('/Gojo.jpeg')] filter blur-sm"></div>
+        <div className="absolute inset-0 bg-[url('/background.jpeg')] filter blur-sm"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <button
-            className="transition ease-in-out delay-15 hover:-translate-y-1 hover:scale-125 hover:bg-indigo-500 duration-300 text-black flex items-center justify-center rounded-full animate__animated animate__fadeIn bg-[url('/week1.jpeg')]"
+            className="transition ease-in-out delay-15 hover:-translate-y-1 hover:scale-125 hover:bg-indigo-500 duration-300 text-black flex items-center justify-center rounded-full animate__animated animate__fadeIn bg-[url('/center_image.jpeg')] bg-cover"
             style={{
-              width: '20rem', // Same width as other ovals
-              height: '14rem', // Same height as other ovals
+              width: '26rem', // Same width as other ovals
+              height: '16rem', // Same height as other ovals
               borderRadius: '50%',
               position: 'absolute',
-              marginLeft: '-10rem', // Half of the width to center it
-              marginTop: '-7rem', // Half of the height to center it
+              marginLeft: '-13rem', // Half of the width to center it
+              marginTop: '-8rem', // Half of the height to center it
             }}
           >
-            What I Learned
+            <div className="w-full h-full flex items-center justify-center flex-col"
+              style={{
+                width: '22rem', // Same width as other ovals
+                height: '15rem', // Same height as other ovals
+                borderRadius: '50%',
+                position: 'absolute',
+              }}
+            >
+              <p>What I Learned</p>
+              <p>Disablity & Ableism</p>
+            </div>
           </button>
           {[...Array(itemCount)].map((_, index) => {
             // Calculate the angle for this item
@@ -106,13 +116,13 @@ export default function Home() {
                   <div
                     className={`text-black flex items-center justify-center hover:bg-indigo-500 bg-[url('/${data[index].imageUrl}')]`}
                     style={{
-                      width: '16rem', // Updated width
-                      height: '10rem', // Updated height
+                      width: '18rem', // Updated width
+                      height: '12rem', // Updated height
                       borderRadius: '50%',
                       position: 'absolute',
                       transform: `translate(${x}px, ${y}px)`,
-                      marginLeft: '-8rem', // Half of the updated width
-                      marginTop: '-5rem', // Half of the updated height
+                      marginLeft: '-9rem', // Half of the updated width
+                      marginTop: '-6rem', // Half of the updated height
                     }}
                   >
                     {data[index].title}
