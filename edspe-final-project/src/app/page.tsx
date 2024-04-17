@@ -13,7 +13,7 @@ export default function Home() {
   const data = [
     {
       title: 'Week 1 (Introduction to Disability Studies)',
-      imageUrl: "Gojo.jpeg",
+      imageUrl: "week1.jpeg",
       hoverText: "This is the hover text for the first item",
     },
     {
@@ -71,10 +71,8 @@ export default function Home() {
     }
   };
 
-  // Number of items
-  const itemCount = data.length;
   // Calculate the rotation angle for each item
-  const angleStep = 360 / itemCount;
+  const angleStep = 360 / data.length;
   return (
     <>
       <Script 
@@ -91,7 +89,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[url('/background.jpeg')] filter blur-sm"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <button
-            className="transition ease-in-out delay-15 hover:-translate-y-1 hover:scale-125 hover:bg-indigo-500 duration-300 text-black flex items-center justify-center rounded-full animate__animated animate__fadeIn bg-[url('/center_image.jpeg')] bg-cover"
+            className="group transition ease-in-out delay-15 hover:-translate-y-1 hover:scale-125 hover:bg-indigo-500 duration-300 text-black flex items-center justify-center rounded-full animate__animated animate__fadeIn bg-[url('/center_image.jpeg')] bg-cover"
             style={{
               width: '26rem', // Same width as other ovals
               height: '16rem', // Same height as other ovals
@@ -102,17 +100,25 @@ export default function Home() {
             }}
             onClick={scrollToElement}
           >
-            <div className="w-full h-full flex items-center justify-center flex-col bg-white/40 font-mono text-3xl"
+            
+            <div className="absolute w-full h-full flex items-center justify-center flex-col bg-white/40 font-mono text-3xl group-hover:opacity-0 transition ease-in-out duration-300"
               style={{
                 borderRadius: '50%',
               }}
             >
               <p>What I Learned</p>
               <p>Disablity & Ableism</p>
-              <p>{"(Click Me for More!)"}</p>
+              <p className="text-xl">{"(Click or Hover for More!)"}</p>
+            </div>
+            <div className="w-full h-full flex items-center justify-center flex-col bg-black/30 opacity-0 group-hover:opacity-100 transition ease-in-out delay-15 duration-300 text-white"
+              style={{
+                borderRadius: '50%'
+              }}
+            >
+              Click the center image to chat with an AI version of me! You can also hover over the other images to see what I learned throughout the course!
             </div>
           </button>
-          {[...Array(itemCount)].map((_, index) => {
+          {data.map((_, index) => {
             // Calculate the angle for this item
             const angle = angleStep * index - 90;
             // Convert the angle to radians for the CSS transform
@@ -136,7 +142,7 @@ export default function Home() {
                   onClick={()=>{router.push(`/reflection/week${index+1}`)}}
                 >
                   <div
-                    className={`text-black flex items-center justify-center hover:bg-indigo-500 bg-[url('/${data[index].imageUrl}')]`}
+                    className={`text-black flex items-center justify-center hover:bg-indigo-500 bg-cover`}
                     style={{
                       width: '18rem', // Updated width
                       height: '12rem', // Updated height
@@ -145,15 +151,16 @@ export default function Home() {
                       transform: `translate(${x}px, ${y}px)`,
                       marginLeft: '-9rem', // Half of the updated width
                       marginTop: '-6rem', // Half of the updated height
+                      backgroundImage: `url(/${data[index].imageUrl})`,
                     }}
                   >
-                    <div className="absolute w-full h-full flex items-center justify-center flex-col bg-white/30 group-hover:opacity-0"
+                    <div className="absolute w-full h-full flex items-center justify-center flex-col bg-white/30 group-hover:opacity-0 transition ease-in-out duration-300"
                       style={{
                         borderRadius: '50%'
                       }}>
                       {data[index].title}
                     </div>
-                    <div className="w-full h-full flex items-center justify-center flex-col bg-black/30 opacity-0 group-hover:opacity-100"
+                    <div className="w-full h-full flex items-center justify-center flex-col bg-black/30 opacity-0 group-hover:opacity-100 transition ease-in-out delay-15 duration-300"
                       style={{
                         borderRadius: '50%'
                       }}
