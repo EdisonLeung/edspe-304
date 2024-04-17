@@ -6,49 +6,61 @@ import Script from 'next/script';
 import 'animate.css';
 import { useRouter } from "next/navigation";
 import { title } from "process";
+import { useWindowDimensions } from "./windowDimension";
 
 
 export default function Home() {
   const data = [
     {
       title: 'Week 1 (Introduction to Disability Studies)',
-      imageUrl: "Gojo.jpeg"
+      imageUrl: "Gojo.jpeg",
+      hoverText: "This is the hover text for the first item",
     },
     {
       title: 'Week 2 (Constructions of Disability)',
       imageUrl: "Gojo.jpeg",
+      hoverText: "This is the hover text for the first item",
     },
     {
       title: 'Week 3 (Disability is an Intersection)',
       imageUrl: "Gojo.jpeg",
+      hoverText: "This is the hover text for the first item",
     },
     {
       title: 'Week 4 (Exploring Meanings of Disability in Schools)',
       imageUrl: "Gojo.jpeg",
+      hoverText: "This is the hover text for the first item",
     },
     {
       title: 'Week 5 (Difference, Not Deficit)',
       imageUrl: "Gojo.jpeg",
+      hoverText: "This is the hover text for the first item",
     },
     {
       title: 'Week 6',
       imageUrl: "Gojo.jpeg",
+      hoverText: "This is the hover text for the first item",
     },
     {
       title: 'Week 7',
       imageUrl: "Gojo.jpeg",
+      hoverText: "This is the hover text for the first item",
     },
     {
       title: 'Week 8',
       imageUrl: "Gojo.jpeg",
+      hoverText: "This is the hover text for the first item",
     },
     {
       title: 'Week 9',
       imageUrl: "Gojo.jpeg",
+      hoverText: "This is the hover text for the first item",
     }
   ]
   const router = useRouter();
   const ref = useRef<HTMLDivElement>(null);
+  const { width, height } = useWindowDimensions();
+
 
   const scrollToElement = () => {
     if (ref.current) {
@@ -106,8 +118,8 @@ export default function Home() {
             // Convert the angle to radians for the CSS transform
             const radians = (angle * Math.PI) / 180;
             // Calculate the x and y position based on the oval shape
-            const x = Math.cos(radians) * window.innerWidth / 2.5; // Adjust if necessary
-            const y = Math.sin(radians) * window.innerHeight / 3; // Adjust if necessary
+            const x = Math.cos(radians) * (width || 0) / 2.5; // Adjust if necessary
+            const y = Math.sin(radians) * (height || 0) / 3; // Adjust if necessary
             // Calculate the animation delay, starting with index 9 and decreasing for each subsequent index
             const animationDelay = `${index * 0.1}`;
 
@@ -146,7 +158,7 @@ export default function Home() {
                         borderRadius: '50%'
                       }}
                     >
-                      sdfsd
+                      {data[index].hoverText}
                     </div>
                   </div>
                 </button>
