@@ -1,38 +1,35 @@
 'use client';
-
-import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Script from 'next/script';
 import 'animate.css';
 import { useRouter } from "next/navigation";
-import { title } from "process";
 import { useWindowDimensions } from "./windowDimension";
 
 
 export default function Home() {
   const data = [
     {
-      title: 'Week 1 (Introduction to Disability Studies)',
+      title: 'Disability Studies',
       imageUrl: "week1.jpeg",
       hoverText: "This is the hover text for the first item",
     },
     {
-      title: 'Week 2 (Constructions of Disability)',
-      imageUrl: "Gojo.jpeg",
+      title: 'Constructions of Disability',
+      imageUrl: "week2.jpeg",
       hoverText: "This is the hover text for the first item",
     },
     {
-      title: 'Week 3 (Disability is an Intersection)',
-      imageUrl: "Gojo.jpeg",
+      title: 'Disability is an Intersection',
+      imageUrl: "week3.jpeg",
       hoverText: "This is the hover text for the first item",
     },
     {
-      title: 'Week 4 (Exploring Meanings of Disability in Schools)',
-      imageUrl: "Gojo.jpeg",
+      title: 'Exploring Meanings of Disability in Schools',
+      imageUrl: "week4.jpeg",
       hoverText: "This is the hover text for the first item",
     },
     {
-      title: 'Week 5 (Difference, Not Deficit)',
+      title: 'Difference, Not Deficit',
       imageUrl: "Gojo.jpeg",
       hoverText: "This is the hover text for the first item",
     },
@@ -89,7 +86,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[url('/background.jpeg')] filter blur-sm"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <button
-            className="group transition ease-in-out delay-15 hover:-translate-y-1 hover:scale-125 hover:bg-indigo-500 duration-300 text-black flex items-center justify-center rounded-full animate__animated animate__fadeIn bg-[url('/center_image.jpeg')] bg-cover"
+            className="group transition ease-in-out delay-15 hover:-translate-y-1 hover:scale-125 hover:bg-indigo-500 duration-300 text-black flex items-center justify-center rounded-full animate__animated animate__fadeIn bg-[url('/chat_image.jpeg')] bg-cover"
             style={{
               width: '26rem', // Same width as other ovals
               height: '16rem', // Same height as other ovals
@@ -101,7 +98,7 @@ export default function Home() {
             onClick={scrollToElement}
           >
             
-            <div className="absolute w-full h-full flex items-center justify-center flex-col bg-white/40 font-mono text-3xl group-hover:opacity-0 transition ease-in-out duration-300"
+            <div className="absolute w-full h-full flex items-center justify-center flex-col bg-white/60 font-mono text-3xl group-hover:opacity-0 transition ease-in-out duration-300"
               style={{
                 borderRadius: '50%',
               }}
@@ -139,10 +136,10 @@ export default function Home() {
               >
                 <button
                   className="text-black flex transition ease-in-out delay-15 hover:-translate-y-1 hover:scale-110 duration-300 group"
-                  onClick={()=>{router.push(`/reflection/week${index+1}`)}}
+                  onClick={()=>{ window.location.href = `/reflection/week${index+1}`}}
                 >
                   <div
-                    className={`text-black flex items-center justify-center hover:bg-indigo-500 bg-cover`}
+                    className={`text-black flex items-center justify-center hover:bg-indigo-500 bg-cover font-mono`}
                     style={{
                       width: '18rem', // Updated width
                       height: '12rem', // Updated height
@@ -154,13 +151,13 @@ export default function Home() {
                       backgroundImage: `url(/${data[index].imageUrl})`,
                     }}
                   >
-                    <div className="absolute w-full h-full flex items-center justify-center flex-col bg-white/30 group-hover:opacity-0 transition ease-in-out duration-300"
+                    <div className="absolute w-full h-full flex items-center justify-center flex-col bg-white/40 group-hover:opacity-0 transition ease-in-out duration-300 text-xl"
                       style={{
                         borderRadius: '50%'
                       }}>
                       {data[index].title}
                     </div>
-                    <div className="w-full h-full flex items-center justify-center flex-col bg-black/30 opacity-0 group-hover:opacity-100 transition ease-in-out delay-15 duration-300"
+                    <div className="w-full h-full flex items-center justify-center flex-col bg-black/40 opacity-0 group-hover:opacity-100 transition ease-in-out delay-15 duration-300 text-white font-mono"
                       style={{
                         borderRadius: '50%'
                       }}
@@ -174,7 +171,7 @@ export default function Home() {
           })}
         </div>
       </div>
-      <div ref={ref} className="absolute bg-red-300 w-full flex justify-center h-screen">
+      <div ref={ref} className="absolute w-full flex justify-center h-screen bg-red-300">
         <div className="w-1/2 flex items-center">
           <ins
             style={{ display: 'block', width: '50%', height: '100%'}}
