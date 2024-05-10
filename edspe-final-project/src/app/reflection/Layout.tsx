@@ -34,7 +34,7 @@ export default function Layout({
 
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <button
-            className={`group transition ease-in-out delay-15 hover:-translate-y-1 hover:scale-125 hover:bg-indigo-500 duration-300 text-black flex items-center justify-center rounded-full animate__animated animate__fadeInUpBig bg-[url('/${imageUrl}')] bg-cover`}
+            className={`group transition ease-in-out delay-15 hover:-translate-y-1 hover:scale-125 hover:bg-indigo-500 duration-300 text-black flex items-center justify-center rounded-full animate__animated animate__fadeInUpBig`}
             style={{
               width: '52rem', // Same width as other ovals
               height: '32rem', // Same height as other ovals
@@ -42,6 +42,8 @@ export default function Layout({
               position: 'absolute',
               marginLeft: '-26rem', // Half of the width to center it
               marginTop: '-16rem', // Half of the height to center it
+              backgroundImage: `url(/${imageUrl})`,
+              backgroundSize: 'cover',
             }}
           >
             
