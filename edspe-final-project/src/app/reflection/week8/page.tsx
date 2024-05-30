@@ -3,7 +3,11 @@ import 'animate.css';
 import Layout from '../Layout';
 
 export default function Home() {
+  const text = 
+  `
+  Commitment to Cross-Disability Solidarity and Leadership of the Most Impacted to create a more inclusive and equitable classroom environment.
+  `
   return (
-    <Layout imageUrl='week1.jpeg' title='Disability Studies' hoverText='This is the hover text for the first item'/>
+    <Layout imageUrl='week8.jpeg' title='Disability Justice Principles' hoverText={text}/>
   );
 }

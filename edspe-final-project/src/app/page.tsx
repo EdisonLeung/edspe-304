@@ -11,50 +11,49 @@ export default function Home() {
     {
       title: 'Disability Studies',
       imageUrl: "week1.jpeg",
-      hoverText: "This is the hover text for the first item",
+      hoverText: "\"I AM NOT YOUR INSPIRATIONAL PORN\" - Stella Young",
     },
     {
       title: 'Constructions of Disability',
       imageUrl: "week2.jpeg",
-      hoverText: "This is the hover text for the first item",
+      hoverText: `How does society define the way we view disability? What should we do about this?`,
     },
     {
       title: 'Disability is an Intersection',
       imageUrl: "week3.jpeg",
-      hoverText: "This is the hover text for the first item",
+      hoverText: `“What kind of world do we want to create, and how should we educate students for that world?” - Mara Sapon-Shevin`,
     },
     {
       title: 'Exploring Meanings of Disability in Schools',
       imageUrl: "week4.jpeg",
-      hoverText: "This is the hover text for the first item",
+      hoverText: "What is \"normal\"? What does that mean for students with disabilities?",
     },
     {
       title: 'Difference, Not Deficit',
-      imageUrl: "Gojo.jpeg",
-      hoverText: "This is the hover text for the first item",
+      imageUrl: "week5.jpeg",
+      hoverText: "Ableism can be perceived on individual, cultural, and institutional levels",
     },
     {
-      title: 'Week 6',
-      imageUrl: "Gojo.jpeg",
-      hoverText: "This is the hover text for the first item",
+      title: 'The Heumann Perspective Podcast',
+      imageUrl: "week6.jpeg",
+      hoverText: "Overcoming the societal barriers and discrimination in a culture that emphasized systemic ableism",
     },
     {
-      title: 'Week 7',
-      imageUrl: "Gojo.jpeg",
-      hoverText: "This is the hover text for the first item",
+      title: 'Compounded Discrimination',
+      imageUrl: "week7.jpeg",
+      hoverText: "Disability is not the only thing people can often discriminate against"
     },
     {
-      title: 'Week 8',
-      imageUrl: "Gojo.jpeg",
-      hoverText: "This is the hover text for the first item",
+      title: 'Pride in Disability',
+      imageUrl: "week8.jpeg",
+      hoverText: "\"Living our lives openly and without shame is a revolutionary act.\" - Harriet McBryde Johnson",
     },
     {
-      title: 'Week 9',
-      imageUrl: "Gojo.jpeg",
-      hoverText: "This is the hover text for the first item",
+      title: 'Deaf Culture',
+      imageUrl: "week9.jpeg",
+      hoverText: "Deaf culture is bonded by a shared language and experiences of being Deaf in a world primarily designed for hearing individuals",
     }
   ]
-  const router = useRouter();
   const ref = useRef<HTMLDivElement>(null);
   const { width, height } = useWindowDimensions();
 
